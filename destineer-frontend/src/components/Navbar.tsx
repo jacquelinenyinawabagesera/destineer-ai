@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Stack, Link } from '@chakra-ui/react';
+import { Flex, Stack, Link, Image } from '@chakra-ui/react';
 
 function Navbar() {
   return (
@@ -8,7 +8,7 @@ function Navbar() {
       position="relative"
       zIndex="10"
       px={{ base: 6, md: 10 }}
-      py={5}
+      py={9}
       align="center"
       justify="space-between"
       mx={{ base: 4, md: 12 }}
@@ -18,18 +18,10 @@ function Navbar() {
       boxShadow="0px 10px 30px rgba(0,0,0,0.3)"
       border="1px solid rgba(255,255,255,0.1)"
     >
-      {/* Destineer AI text logo */}
-      <Text
-        fontSize="2xl"
-        fontWeight="bold"
-        color="brand.500"
-        fontFamily="'Georgia', serif"
-        fontStyle="italic"
-      >
-        Destineer AI
-      </Text>
+      {/* ✅ Logo from public folder */}
+      <Image src="/logos.svg" alt="Destineer AI" h="20px" />
 
-      <Stack direction="row" spacing={10} align="center">
+      <Stack direction="row" gap={10} align="center">
         <Link
           color="brand.500"
           fontWeight="600"

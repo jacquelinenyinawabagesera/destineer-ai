@@ -68,6 +68,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/details/:id" element={<PlaceDetails />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/details" element={<PlaceDetails />} />
         </Routes>

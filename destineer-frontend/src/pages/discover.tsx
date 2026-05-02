@@ -3,21 +3,22 @@ import {
   Box, Flex, Text, Select, SimpleGrid, Image, HStack, VStack, Button, Link
 } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
+import api from '../api';
 import { Link as RouterLink } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 const places = [
   {
     id: 1,
-    name: 'Nyungwe Forest',
-    description: 'forest dgiaofueock jgefwaiuri',
+    name: 'Nyungwe Forest National Park',
+    description: 'Explore the ancient rainforest and canopy walk.',
     rating: 5.0,
     image: 'https://images.unsplash.com/photo-1516422317184-215397955906?q=80&w=2068&auto=format&fit=crop',
   },
   {
     id: 2,
-    name: 'Convention Centre',
-    description: 'forest dgiaofueock jgefwaiuri',
+    name: 'Kigali Convention Centre',
+    description: 'Rwanda’s iconic landmark and hub of innovation.',
     rating: 5.0,
     image: 'https://images.unsplash.com/photo-1589196001712-4217336f3223?q=80&w=2070&auto=format&fit=crop',
   },
@@ -39,9 +40,6 @@ function Discover() {
           <Select placeholder="Category" w="200px" bg="#D9D9D9" border="none">
             <option value="forest">Forest</option>
           </Select>
-          <Select placeholder="Ranked Places" w="200px" bg="#D9D9D9" border="none">
-            <option value="top">Top Rated</option>
-          </Select>
           <Link ml="auto" fontWeight="600" textDecoration="underline">Nearby Places</Link>
         </Flex>
 
@@ -51,9 +49,16 @@ function Discover() {
           <Box flex="3">
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               {places.map((place) => (
-                <Box key={place.id}>
-                  <Image src={place.image} alt={place.name} w="100%" h="300px" objectFit="cover" mb={3} />
-                  <Text fontWeight="700" fontSize="xl" mb={1}>{place.name}</Text>
+                <Box 
+                  key={place.id} 
+                  as={RouterLink} 
+                  to="/details" 
+                  cursor="pointer"
+                  transition="all 0.3s"
+                  _hover={{ transform: 'translateY(-8px)', textDecoration: 'none' }}
+                >
+                  <Image src={place.image} alt={place.name} w="100%" h="300px" objectFit="cover" borderRadius="lg" mb={3} />
+                  <Text fontWeight="700" fontSize="xl" mb={1} color="gray.800">{place.name}</Text>
                   <Text fontSize="md" color="gray.600" mb={3}>{place.description}</Text>
                   
                   <Flex justify="space-between" align="center">
@@ -67,8 +72,6 @@ function Discover() {
                     </VStack>
                     
                     <Button 
-                        as={RouterLink}
-                        to="/details"
                         bg="#121E0A" 
                         color="white" 
                         px={8} 

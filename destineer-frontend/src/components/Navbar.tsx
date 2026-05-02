@@ -1,10 +1,22 @@
 import React from 'react';
-import { Flex, Stack, Link, Image } from '@chakra-ui/react';
+import { Flex, Text, Stack } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
+interface NavbarProps {
+  activePage?: 'home' | 'discover' | 'contact';
+}
 
+function Navbar({ activePage = 'home' }: NavbarProps) {
+  const activeColor = '#B8D433';
+  const inactiveColor = 'white';
 
+  const linkStyle = (page: string): React.CSSProperties => ({
+    color: activePage === page ? activeColor : inactiveColor,
+    fontWeight: '600',
+    textDecoration: 'none',
+    fontSize: '18px'
+  });
 
-function Navbar() {
   return (
     <Flex
       as="nav"
@@ -16,35 +28,18 @@ function Navbar() {
       align="center"
       justify="space-between"
       bg="rgba(18, 30, 10, 0.85)"
-      boxShadow="0px 10px 30px rgba(0,0,0,0.25)"
-      borderBottom="1px solid rgba(255,255,255,0.08)"
-      overflowX="hidden"
+      backdropFilter="blur(10px)"
+      boxShadow="0px 10px 30px rgba(0,0,0,0.3)"
+      border="1px solid rgba(255,255,255,0.1)"
     >
-      <Image
-        src="/logos.svg"
-        alt="Destineer AI"
-        h={{ base: "14px", sm: "16px", md: "20px" }}
-        flexShrink={0}
-      />
+      <Text fontSize="2xl" fontWeight="bold" color="#B8D433" fontFamily="'Georgia', serif" fontStyle="italic">
+        Destineer AI
+      </Text>
 
-      <Stack
-        direction="row"
-        spacing={{ base: 3, sm: 5, md: 10 }}
-        align="center"
-        whiteSpace="nowrap"
-        flexShrink={0}
-      >
-        <Link color="brand.500" fontWeight="600" fontSize={{ base: "sm", md: "md" }}>
-          Home
-        </Link>
-
-        <Link color="white" fontWeight="600" fontSize={{ base: "sm", md: "md" }}>
-          Discover
-        </Link>
-
-        <Link color="white" fontWeight="600" fontSize={{ base: "sm", md: "md" }}>
-          Contact Us
-        </Link>
+      <Stack direction="row" spacing={10} align="center">
+        <Link to="/" style={linkStyle('home')}>Home</Link>
+        <Link to="/discover" style={linkStyle('discover')}>Discover</Link>
+        <Link to="/contact" style={linkStyle('contact')}>Contact Us</Link>
       </Stack>
     </Flex>
   );

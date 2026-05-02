@@ -12,14 +12,29 @@ const places = [
     name: 'Nyungwe Forest',
     description: 'forest dgiaofueock jgefwaiuri',
     rating: 5.0,
-    image: 'https://images.unsplash.com/photo-1516422317184-215397955906?q=80&w=2068&auto=format&fit=crop',
+    image: '/nyungwe.jpeg',
   },
   {
     id: 2,
     name: 'Convention Centre',
     description: 'forest dgiaofueock jgefwaiuri',
     rating: 5.0,
-    image: 'https://images.unsplash.com/photo-1589196001712-4217336f3223?q=80&w=2070&auto=format&fit=crop',
+    image: '/homepage.jpeg',
+  },
+  {
+    id: 3,
+    name: 'Hima Resort',
+    description: 'forest dgiaofueock jgefwaiuri',
+    rating: 5.0,
+    image: '/hima.jpeg',
+  },
+  
+  {
+    id: 4,
+    name: 'Hima Resort',
+    description: 'forest dgiaofueock jgefwaiuri',
+    rating: 5.0,
+    image: '/hima.jpeg',
   },
 ];
 

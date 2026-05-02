@@ -1,7 +1,22 @@
 import React from 'react';
-import { Flex, Text, Stack, Link } from '@chakra-ui/react';
+import { Flex, Text, Stack } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
-function Navbar() {
+interface NavbarProps {
+  activePage?: 'home' | 'discover' | 'contact';
+}
+
+function Navbar({ activePage = 'home' }: NavbarProps) {
+  const activeColor = '#B8D433';
+  const inactiveColor = 'white';
+
+  const linkStyle = (page: string): React.CSSProperties => ({
+    color: activePage === page ? activeColor : inactiveColor,
+    fontWeight: '600',
+    textDecoration: 'none',
+    fontSize: '18px'
+  });
+
   return (
     <Flex
       as="nav"
@@ -15,42 +30,18 @@ function Navbar() {
       mt={10}
       borderRadius="lg"
       bg="rgba(18, 30, 10, 0.85)"
+      backdropFilter="blur(10px)"
       boxShadow="0px 10px 30px rgba(0,0,0,0.3)"
       border="1px solid rgba(255,255,255,0.1)"
     >
-      {/* Destineer AI text logo */}
-      <Text
-        fontSize="2xl"
-        fontWeight="bold"
-        color="brand.500"
-        fontFamily="'Georgia', serif"
-        fontStyle="italic"
-      >
+      <Text fontSize="2xl" fontWeight="bold" color="#B8D433" fontFamily="'Georgia', serif" fontStyle="italic">
         Destineer AI
       </Text>
 
       <Stack direction="row" spacing={10} align="center">
-        <Link
-          color="brand.500"
-          fontWeight="600"
-          _hover={{ color: 'white', textDecoration: 'none' }}
-        >
-          Home
-        </Link>
-        <Link
-          color="white"
-          fontWeight="600"
-          _hover={{ color: 'brand.500', textDecoration: 'none' }}
-        >
-          Discover
-        </Link>
-        <Link
-          color="white"
-          fontWeight="600"
-          _hover={{ color: 'brand.500', textDecoration: 'none' }}
-        >
-          Contact Us
-        </Link>
+        <Link to="/" style={linkStyle('home')}>Home</Link>
+        <Link to="/discover" style={linkStyle('discover')}>Discover</Link>
+        <Link to="/contact" style={linkStyle('contact')}>Contact Us</Link>
       </Stack>
     </Flex>
   );

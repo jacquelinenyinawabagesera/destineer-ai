@@ -26,15 +26,15 @@ const places = [
     name: 'Hima Resort',
     description: 'forest dgiaofueock jgefwaiuri',
     rating: 5.0,
-    image: '/hima.jpeg',
+    image: '/Rwanda.jpeg',
   },
   
   {
     id: 4,
-    name: 'Hima Resort',
+    name: 'Akagera National Park',
     description: 'forest dgiaofueock jgefwaiuri',
     rating: 5.0,
-    image: '/hima.jpeg',
+    image: '/akagera.jpeg',
   },
 ];
 

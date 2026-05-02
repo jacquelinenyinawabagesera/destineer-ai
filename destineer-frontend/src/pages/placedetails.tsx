@@ -71,7 +71,6 @@ function PlaceDetails() {
             <Text fontSize="xl" fontWeight="700" mb={4}>Community Gallery</Text>
             <SimpleGrid columns={{base: 2, md: 3}} spacing={4} mb={10}>
                <Image src={place.mainImage} h="180px" w="100%" objectFit="cover" borderRadius="lg" />
-               <Image src={place.mainImage} h="180px" w="100%" objectFit="cover" borderRadius="lg" />
                <Flex 
                   bg="gray.50" 
                   h="180px" 
